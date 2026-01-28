@@ -473,10 +473,11 @@ button:active {
 
 
 /* ===================================
-   BOTTOM TAB BAR (MOBILE APP)
+   BOTTOM TAB BAR (MOBILE PHONES ONLY)
 =================================== */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .tab-bar {
+    display: flex;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -485,7 +486,6 @@ button:active {
     background: rgba(10, 15, 30, 0.75);
     backdrop-filter: blur(18px);
     border-top: 1px solid var(--border);
-    display: flex;
     justify-content: space-around;
     align-items: center;
     z-index: 100;
@@ -515,5 +515,3 @@ button:active {
     color: #25D366;
   }
 }
-
-
