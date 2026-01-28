@@ -475,6 +475,41 @@ button:active {
 .tab-bar {
   display: none;
 }
+.tab-bar {
+  display: flex;
+  justify-content: space-around;
+  background: #0b0f1a;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  color: #9aa4bf;
+  text-decoration: none;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.tab i {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.tab.active {
+  color: #ffffff;
+}
+
+.tab.active i {
+  color: #6ee7ff; /* HighValue accent */
+}
+
+.tab.whatsapp {
+  color: #25D366;
+}
+
 
 /* ===================================
    BOTTOM TAB BAR (MOBILE PHONES ONLY)
