@@ -341,4 +341,121 @@ footer {
     padding-top: 5rem;
     padding-bottom: 4rem;
   }
+} 
+
+/* ===================================
+   APP-LIKE MOBILE EXPERIENCE
+=================================== */
+@media (max-width: 768px) {
+
+  body {
+    background: linear-gradient(180deg, #020617, #0b0f17);
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* ---------- NAVBAR ---------- */
+  .navbar {
+    padding: 1rem 1.2rem;
+  }
+
+  .navbar nav {
+    display: none; /* mobile app-style: clean top bar */
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 4.5rem 1.4rem 3rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .cta {
+    width: 100%;
+    text-align: center;
+    padding: 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  /* ---------- SECTIONS AS PANELS ---------- */
+  section {
+    padding-left: 1.4rem !important;
+    padding-right: 1.4rem !important;
+  }
+
+  /* ---------- CARD GRID ---------- */
+  .grid {
+    gap: 1.2rem;
+  }
+
+  .card {
+    padding: 1.6rem;
+    border-radius: 20px;
+    backdrop-filter: blur(6px);
+    transform: translateZ(0);
+  }
+
+  /* Tap feedback (app feel) */
+  .card:active {
+    transform: scale(0.97);
+  }
+
+  /* ---------- SOLUTION TITLES ---------- */
+  .card h3 {
+    font-size: 1.05rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+
+  /* ---------- INDUSTRY TAGS ---------- */
+  .industry-list {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.5rem;
+  }
+
+  .industry-list span {
+    white-space: nowrap;
+    font-size: 0.8rem;
+  }
+
+  /* ---------- CTA SECTION ---------- */
+  .cta-section {
+    padding: 4rem 1.4rem;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    padding-bottom: 5rem;
+  }
+} 
+
+/* ===================================
+   TOUCH MICRO-INTERACTIONS
+=================================== */
+a, button {
+  touch-action: manipulation;
 }
+
+a:active,
+button:active {
+  transform: scale(0.96);
+  transition: transform 0.15s ease;
+}
+
+
