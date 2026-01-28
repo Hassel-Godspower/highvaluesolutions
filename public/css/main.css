@@ -458,4 +458,62 @@ button:active {
   transition: transform 0.15s ease;
 }
 
+@media (max-width: 768px) {
+  main {
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+    height: 100vh;
+  }
+
+  section {
+    scroll-snap-align: start;
+  }
+}
+
+
+
+/* ===================================
+   BOTTOM TAB BAR (MOBILE APP)
+=================================== */
+@media (max-width: 768px) {
+  .tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: rgba(10, 15, 30, 0.75);
+    backdrop-filter: blur(18px);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+  }
+
+  .tab {
+    flex: 1;
+    text-align: center;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  .tab i {
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .tab.active,
+  .tab:hover {
+    color: var(--accent);
+  }
+
+  .tab.whatsapp i {
+    color: #25D366;
+  }
+}
+
 
