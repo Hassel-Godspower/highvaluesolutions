@@ -252,9 +252,10 @@ body {
 .visitor-location {
   width: 100%;
   color: var(--text-primary);
-  font-size: 0.95rem;
-  text-align: center;
+  font-size: 0.85rem;        /* smaller font */
+  text-align: left;           /* align left */
   border-bottom: 1px solid var(--border);
+  padding: 0.5rem 6%;         /* optional: add some horizontal padding */
 }
 
 .visitor-location span {
