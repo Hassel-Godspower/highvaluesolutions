@@ -419,6 +419,32 @@ section + section {
   font-size: 0.9rem;
   color: var(--text-muted);
 }
+/* ===================================
+   METRICS — HORIZONTAL ALIGNMENT
+=================================== */
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  text-align: center;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Mobile (stack neatly, still readable) */
+@media (max-width: 480px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+}
 
 /* ===================================
    LEADERSHIP SECTION — AUTHORITY
