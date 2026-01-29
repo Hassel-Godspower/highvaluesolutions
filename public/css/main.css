@@ -446,6 +446,18 @@ section + section {
   }
 }
 
+.split {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem; /* ← SPACE BETWEEN MISSION & VISION */
+}
+@media (max-width: 768px) {
+  .split {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
 /* ===================================
    LEADERSHIP SECTION — AUTHORITY
 =================================== */
