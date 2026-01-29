@@ -872,3 +872,74 @@ button:active {
     color: #25D366;
   }
 }
+
+/* ===================================
+   MOBILE SEARCH OVERLAY
+=================================== */
+.mobile-search {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 20, 0.96);
+  backdrop-filter: blur(18px);
+  z-index: 200;
+  display: none;
+  flex-direction: column;
+  padding: 1.2rem;
+}
+
+.mobile-search.active {
+  display: flex;
+}
+
+/* Search header */
+.search-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.search-header input {
+  flex: 1;
+  padding: 0.85rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.05);
+  color: var(--text-primary);
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-header button {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.4rem;
+}
+
+/* Results */
+.mobile-search .search-results {
+  flex: 1;
+  overflow-y: auto;
+  border-top: 1px solid var(--border);
+  margin-top: 0.8rem;
+}
+
+.mobile-search .search-results a {
+  display: block;
+  padding: 1rem 0.4rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+}
+
+.mobile-search .search-results a:hover {
+  color: var(--accent);
+}
+
+/* Prevent background scroll */
+body.search-open {
+  overflow: hidden;
+}
+
