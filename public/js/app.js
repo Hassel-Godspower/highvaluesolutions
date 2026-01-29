@@ -100,21 +100,24 @@ document.addEventListener("click", e => {
 });
 
 /* ===================================
-   MOBILE SEARCH HANDLER
+   MOBILE SEARCH HANDLER (FINAL)
 =================================== */
 
 const openSearchBtn = document.getElementById("openSearch");
 const closeSearchBtn = document.getElementById("closeSearch");
 const mobileSearch = document.getElementById("mobileSearch");
+const mobileForm = document.getElementById("mobileSearchForm");
 const mobileInput = document.getElementById("mobileSearchInput");
 const mobileResults = document.getElementById("mobileSearchResults");
 
+/* Open search */
 openSearchBtn.addEventListener("click", () => {
   mobileSearch.classList.add("active");
   document.body.classList.add("search-open");
   setTimeout(() => mobileInput.focus(), 150);
 });
 
+/* Close search */
 closeSearchBtn.addEventListener("click", closeMobileSearch);
 
 function closeMobileSearch() {
@@ -124,13 +127,12 @@ function closeMobileSearch() {
   mobileResults.innerHTML = "";
 }
 
-mobileInput.addEventListener("input", () => {
+/* Core search logic */
+function runMobileSearch() {
   const query = mobileInput.value.trim().toLowerCase();
+  mobileResults.innerHTML = "";
 
-  if (!query) {
-    mobileResults.innerHTML = "";
-    return;
-  }
+  if (!query) return;
 
   const results = SEARCH_INDEX.filter(item =>
     item.title.toLowerCase().includes(query) ||
@@ -146,12 +148,23 @@ mobileInput.addEventListener("input", () => {
   mobileResults.innerHTML = results
     .map(r => `<a href="${r.url}">${r.title}</a>`)
     .join("");
+
+  // Ensure results are visible
+  mobileResults.scrollTop = 0;
+}
+
+/* Live typing (optional but premium) */
+mobileInput.addEventListener("input", runMobileSearch);
+
+/* ENTER / SEARCH / DONE key support */
+mobileForm.addEventListener("submit", e => {
+  e.preventDefault(); // stop page reload
+  runMobileSearch();
 });
 
-/* Close on ESC */
+/* ESC to close (desktop + mobile keyboards) */
 document.addEventListener("keydown", e => {
   if (e.key === "Escape" && mobileSearch.classList.contains("active")) {
     closeMobileSearch();
   }
 });
-
