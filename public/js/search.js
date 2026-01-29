@@ -5,7 +5,7 @@
 const searchInput = document.getElementById("siteSearch");
 const resultsBox = document.getElementById("searchResults");
 
-/**
+/*
  * SEARCH INDEX
  * Expand this over time (or generate automatically later)
  */
