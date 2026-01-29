@@ -99,3 +99,59 @@ document.addEventListener("click", e => {
   }
 });
 
+/* ===================================
+   MOBILE SEARCH HANDLER
+=================================== */
+
+const openSearchBtn = document.getElementById("openSearch");
+const closeSearchBtn = document.getElementById("closeSearch");
+const mobileSearch = document.getElementById("mobileSearch");
+const mobileInput = document.getElementById("mobileSearchInput");
+const mobileResults = document.getElementById("mobileSearchResults");
+
+openSearchBtn.addEventListener("click", () => {
+  mobileSearch.classList.add("active");
+  document.body.classList.add("search-open");
+  setTimeout(() => mobileInput.focus(), 150);
+});
+
+closeSearchBtn.addEventListener("click", closeMobileSearch);
+
+function closeMobileSearch() {
+  mobileSearch.classList.remove("active");
+  document.body.classList.remove("search-open");
+  mobileInput.value = "";
+  mobileResults.innerHTML = "";
+}
+
+mobileInput.addEventListener("input", () => {
+  const query = mobileInput.value.trim().toLowerCase();
+
+  if (!query) {
+    mobileResults.innerHTML = "";
+    return;
+  }
+
+  const results = SEARCH_INDEX.filter(item =>
+    item.title.toLowerCase().includes(query) ||
+    item.keywords.toLowerCase().includes(query)
+  );
+
+  if (!results.length) {
+    mobileResults.innerHTML =
+      `<p style="padding:1rem;color:#8a90a2;">No results found</p>`;
+    return;
+  }
+
+  mobileResults.innerHTML = results
+    .map(r => `<a href="${r.url}">${r.title}</a>`)
+    .join("");
+});
+
+/* Close on ESC */
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && mobileSearch.classList.contains("active")) {
+    closeMobileSearch();
+  }
+});
+
