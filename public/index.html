@@ -83,6 +83,10 @@
   </nav>
 
 </header>
+<!-- VISITOR LOCATION -->
+<section class="visitor-location" id="visitorLocation">
+  <p>.. <span id="visitorCity">…</span>, <span id="visitorCountry">…</span></p>
+</section>
 
 
 <!-- HERO -->
@@ -201,6 +205,33 @@
 </footer>
 
 <script src="js/app.js"></script>
-<script src="js/search.js"></script>
+  
+<script 
+/* ===================================
+   VISITOR LOCATION DETECTION
+=================================== */
+async function showVisitorLocation() {
+  try {
+    const res = await fetch("https://ipapi.co/json/");
+    if (!res.ok) throw new Error("Unable to fetch location");
+
+    const data = await res.json();
+
+    const city = data.city || "your city";
+    const country = data.country_name || "your country";
+
+    document.getElementById("visitorCity").textContent = city;
+    document.getElementById("visitorCountry").textContent = country;
+  } catch (err) {
+    console.error("Location fetch error:", err);
+    // fallback text
+    document.getElementById("visitorCity").textContent = "your city";
+    document.getElementById("visitorCountry").textContent = "your country";
+  }
+}
+
+// Initialize
+showVisitorLocation();
+</script>
 </body>
 </html>
