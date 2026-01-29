@@ -287,14 +287,16 @@ body {
   background: var(--accent-soft);
   color: var(--accent);
 }
+
 /* ===================================
-   COMPANY PAGE — STRUCTURAL POLISH
+   COMPANY PAGE — FOOTER SAFE SPACE (MOBILE)
 =================================== */
 @media (max-width: 480px) {
-  body.company-page main {
-    padding-bottom: 100px;
+  body.company-page footer {
+    padding-bottom: 6.5rem; /* clears fixed bottom tab bar */
   }
 }
+
 
 /* Slightly reduce hero height on company page */
 .hero.inner-hero {
