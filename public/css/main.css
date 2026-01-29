@@ -258,6 +258,24 @@ body {
   background: var(--bg-card);
 }
 
+.cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.35), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.cta:hover::after {
+  opacity: 1;
+}
+
 /* ===================================
    VISITOR LOCATION BANNER
 =================================== */
