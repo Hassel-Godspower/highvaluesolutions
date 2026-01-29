@@ -251,8 +251,6 @@ body {
 =================================== */
 .visitor-location {
   width: 100%;
-  padding: 0.8rem 6%;
-  background: rgba(79, 140, 255, 0.08);
   color: var(--text-primary);
   font-size: 0.95rem;
   text-align: center;
@@ -260,7 +258,7 @@ body {
 }
 
 .visitor-location span {
-  font-weight: 600;
+  font-weight: 400;
   color: var(--accent);
 }
 
