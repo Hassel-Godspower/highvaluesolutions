@@ -290,6 +290,11 @@ body {
 /* ===================================
    COMPANY PAGE — STRUCTURAL POLISH
 =================================== */
+@media (max-width: 480px) {
+  body.company-page main {
+    padding-bottom: 7.5rem;
+  }
+}
 
 /* Slightly reduce hero height on company page */
 .hero.inner-hero {
