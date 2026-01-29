@@ -246,6 +246,25 @@ body {
   background: var(--bg-card);
 }
 
+/* ===================================
+   VISITOR LOCATION BANNER
+=================================== */
+.visitor-location {
+  width: 100%;
+  padding: 0.8rem 6%;
+  background: rgba(79, 140, 255, 0.08);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.visitor-location span {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+
 /* ================================
    CONTEXT
 ================================ */
