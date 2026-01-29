@@ -292,7 +292,7 @@ body {
 =================================== */
 @media (max-width: 480px) {
   body.company-page main {
-    padding-bottom: 7.5rem;
+    padding-bottom: 100px;
   }
 }
 
