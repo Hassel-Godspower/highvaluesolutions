@@ -168,3 +168,11 @@ document.addEventListener("keydown", e => {
     closeMobileSearch();
   }
 });
+
+const mobileSearchBtn = document.querySelector("#mobileSearchForm button[type='submit']");
+
+mobileSearchBtn.addEventListener("click", e => {
+  e.preventDefault();
+  runMobileSearch();
+});
+
