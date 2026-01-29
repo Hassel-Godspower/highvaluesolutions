@@ -287,6 +287,205 @@ body {
   background: var(--accent-soft);
   color: var(--accent);
 }
+/* ===================================
+   COMPANY PAGE — STRUCTURAL POLISH
+=================================== */
+
+/* Slightly reduce hero height on company page */
+.hero.inner-hero {
+  min-height: 70vh;
+  padding-top: 6rem;
+  padding-bottom: 5rem;
+}
+
+/* Improve hero text hierarchy */
+.hero.inner-hero h1 {
+  max-width: 820px;
+  letter-spacing: -0.5px;
+}
+
+.hero.inner-hero p {
+  font-size: 1.1rem;
+  max-width: 700px;
+}
+
+/* ===================================
+   CONTENT SECTIONS — READABILITY
+=================================== */
+
+.content {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.content h2 {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+}
+
+.content p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 780px;
+}
+
+/* Add visual breathing room between sections */
+section + section {
+  margin-top: 2.5rem;
+}
+
+/* ===================================
+   MISSION / VISION SPLIT
+=================================== */
+
+.split {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.split > div {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem;
+}
+
+.split h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.split p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* ===================================
+   VALUES LIST (HOW WE WORK)
+=================================== */
+
+.values {
+  list-style: none;
+  margin-top: 1.5rem;
+}
+
+.values li {
+  position: relative;
+  padding-left: 1.8rem;
+  margin-bottom: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.values li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+/* ===================================
+   METRICS — TRUST NOT HYPE
+=================================== */
+
+.metrics {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 4rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.metrics div {
+  background: transparent;
+}
+
+.metrics h3 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.metrics p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ===================================
+   LEADERSHIP SECTION — AUTHORITY
+=================================== */
+
+.content .card {
+  max-width: 780px;
+  margin-top: 1.5rem;
+  padding: 2.5rem;
+}
+
+.content .card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.8rem;
+}
+
+.content .card p {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Remove hover exaggeration for leadership (more serious) */
+.content .card:hover {
+  transform: none;
+  border-color: var(--border);
+}
+
+/* ===================================
+   CTA SECTION — CONFIDENT, NOT SALESY
+=================================== */
+
+.cta-section h2 {
+  font-size: 2.3rem;
+}
+
+.cta-section p {
+  font-size: 1.05rem;
+}
+
+/* ===================================
+   MOBILE COMPANY PAGE TUNING
+=================================== */
+
+@media (max-width: 768px) {
+
+  .hero.inner-hero {
+    padding-top: 4.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero.inner-hero h1 {
+    font-size: 2.1rem;
+  }
+
+  .content p {
+    font-size: 0.95rem;
+  }
+
+  .split {
+    gap: 1.2rem;
+  }
+
+  .split > div {
+    padding: 1.8rem;
+  }
+
+  .metrics {
+    padding: 3rem 0;
+  }
+
+  .metrics h3 {
+    font-size: 2rem;
+  }
+}
 
 /* ================================
    CTA SECTION
