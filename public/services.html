@@ -35,12 +35,25 @@
 <body>
 <header class="navbar">
   <div class="logo">HighValue<span>Solutions</span></div>
-  <nav>
+
+  <nav class="nav-links">
     <a href="/">Home</a>
     <a href="/services.html">Solutions</a>
     <a href="/about.html">Company</a>
     <a href="/contact.html" class="btn">Start a Project</a>
   </nav>
+
+  <!-- Search -->
+  <div class="search-container">
+    <input
+      type="search"
+      id="siteSearch"
+      placeholder="Search…"
+      aria-label="Search site"
+      autocomplete="off"
+    />
+    <div class="search-results" id="searchResults"></div>
+  </div>
 </header>
 
 <section class="hero">
