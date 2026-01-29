@@ -99,3 +99,78 @@ document.addEventListener("click", e => {
   }
 });
 
+/* ===================================
+   MOBILE SEARCH HANDLER (FINAL)
+=================================== */
+
+const openSearchBtn = document.getElementById("openSearch");
+const closeSearchBtn = document.getElementById("closeSearch");
+const mobileSearch = document.getElementById("mobileSearch");
+const mobileForm = document.getElementById("mobileSearchForm");
+const mobileInput = document.getElementById("mobileSearchInput");
+const mobileResults = document.getElementById("mobileSearchResults");
+
+/* Open overlay */
+openSearchBtn.addEventListener("click", () => {
+  mobileSearch.classList.add("active");
+  document.body.classList.add("search-open");
+  setTimeout(() => mobileInput.focus(), 150);
+});
+
+/* Close overlay */
+closeSearchBtn.addEventListener("click", closeMobileSearch);
+
+function closeMobileSearch() {
+  mobileSearch.classList.remove("active");
+  document.body.classList.remove("search-open");
+  mobileInput.value = "";
+  mobileResults.innerHTML = "";
+}
+
+/* Core search logic */
+function runMobileSearch() {
+  const query = mobileInput.value.trim().toLowerCase();
+  mobileResults.innerHTML = "";
+
+  if (!query) return;
+
+  const results = SEARCH_INDEX.filter(item =>
+    item.title.toLowerCase().includes(query) ||
+    item.keywords.toLowerCase().includes(query)
+  );
+
+  if (!results.length) {
+    mobileResults.innerHTML =
+      `<p style="padding:1rem;color:#8a90a2;">No results found</p>`;
+    return;
+  }
+
+  mobileResults.innerHTML = results
+    .map(r => `<a href="${r.url}">${r.title}</a>`)
+    .join("");
+}
+
+/* Run search live as user types */
+mobileInput.addEventListener("input", runMobileSearch);
+
+/* Handle form submit */
+mobileForm.addEventListener("submit", e => {
+  e.preventDefault(); // prevent page reload
+  runMobileSearch();
+});
+
+/* ESC key closes search */
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && mobileSearch.classList.contains("active")) {
+    closeMobileSearch();
+  }
+});
+
+const mobileSearchBtn = document.querySelector("#mobileSearchForm button[type='submit']");
+
+mobileSearchBtn.addEventListener("click", e => {
+  e.preventDefault();
+  runMobileSearch();
+});
+
+
