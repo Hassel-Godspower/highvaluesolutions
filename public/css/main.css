@@ -351,7 +351,7 @@ body {
 /* Kill leftover spacing */
 .goog-te-gadget {
   font-size: 10px !important;
-  height: 0 !important;
+  height: 10 !important;
   overflow: hidden;
 }
 
