@@ -77,6 +77,8 @@
 <div class="visitor-location" id="visitorLocation">
   <p><span id="visitorCity">…</span>, <span id="visitorCountry">…</span></p>
 </div>
+<div id="google_translate_element"></div>
+
 
 <!-- HERO -->
 <section class="hero">
@@ -257,6 +259,42 @@ async function showVisitorLocation() {
 }
 
 showVisitorLocation();
+</script>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    },
+    'google_translate_element'
+  );
+}
+</script>
+
+<script
+  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lang = localStorage.getItem("site_lang");
+  if (lang) {
+    const select = document.querySelector("select.goog-te-combo");
+    if (select) {
+      select.value = lang;
+      select.dispatchEvent(new Event("change"));
+    }
+  }
+
+  document.addEventListener("change", e => {
+    if (e.target.classList.contains("goog-te-combo")) {
+      localStorage.setItem("site_lang", e.target.value);
+    }
+  });
+});
 </script>
 
 </body>
