@@ -80,6 +80,23 @@
     <span id="visitorCity">…</span>, <span id="visitorCountry">…</span>
   </div>
 
+  <!-- CUSTOM TRANSLATE SWITCHER -->
+  <div class="lang-switcher">
+    <button id="langToggle" class="lang-btn">
+      🌍 Translate Site
+    </button>
+  
+    <ul id="langMenu" class="lang-menu">
+      <li data-lang="en">English</li>
+      <li data-lang="fr">Français</li>
+      <li data-lang="es">Español</li>
+      <li data-lang="de">Deutsch</li>
+      <li data-lang="pt">Português</li>
+      <li data-lang="ar">العربية</li>
+    </ul>
+  </div>
+  
+  <!-- GOOGLE TRANSLATE (HIDDEN ENGINE) -->
   <div id="google_translate_element"></div>
 </div>
 
@@ -270,49 +287,59 @@ function googleTranslateElementInit() {
   new google.translate.TranslateElement(
     {
       pageLanguage: 'en',
-      includedLanguages: 'en,fr,es,de,pt,ar,zh,ru,it,nl',
-      autoDisplay: false,
-      layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+      autoDisplay: false
     },
     'google_translate_element'
   );
 }
 </script>
 
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("langToggle");
+  const menu = document.getElementById("langMenu");
 
-  const wrapper = document.querySelector(".visitor-meta");
-  const button = document.getElementById("openTranslate");
-
-  button.addEventListener("click", () => {
-    wrapper.classList.toggle("translate-open");
+  toggle.addEventListener("click", () => {
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
   });
 
-  /* Persist language */
-  const savedLang = localStorage.getItem("site_lang");
-
-  const waitForTranslate = setInterval(() => {
-    const select = document.querySelector(".goog-te-combo");
-    if (!select) return;
-
-    if (savedLang) {
-      select.value = savedLang;
-      select.dispatchEvent(new Event("change"));
-    }
-
-    select.addEventListener("change", () => {
-      localStorage.setItem("site_lang", select.value);
+  document.querySelectorAll(".lang-menu li").forEach(item => {
+    item.addEventListener("click", () => {
+      const lang = item.dataset.lang;
+      applyLanguage(lang);
+      localStorage.setItem("site_lang", lang);
+      menu.style.display = "none";
     });
+  });
 
-    clearInterval(waitForTranslate);
-  }, 300);
+  function applyLanguage(lang) {
+    const interval = setInterval(() => {
+      const select = document.querySelector(".goog-te-combo");
+      if (!select) return;
 
+      select.value = lang;
+      select.dispatchEvent(new Event("change"));
+      clearInterval(interval);
+    }, 300);
+  }
+
+  // Restore language
+  const savedLang = localStorage.getItem("site_lang");
+  if (savedLang) {
+    applyLanguage(savedLang);
+  }
+
+  // Close on outside click
+  document.addEventListener("click", e => {
+    if (!e.target.closest(".lang-switcher")) {
+      menu.style.display = "none";
+    }
+  });
 });
 </script>
+
 
 </body>
 </html>
