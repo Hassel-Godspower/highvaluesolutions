@@ -293,15 +293,27 @@ body {
 }
 
 /* ===================================
-   VISITOR LOCATION BANNER
+   VISITOR META BAR (LOCATION + LANGUAGE)
 =================================== */
-.visitor-location {
+
+.visitor-meta {
   width: 100%;
-  color: var(--text-primary);
-  font-size: 0.85rem;        /* smaller font */
-  text-align: left;           /* align left */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 8px 16px;
+  font-size: 0.75rem;
+
+  background: var(--bg-primary);
   border-bottom: 1px solid var(--border);
-  padding: 0.5rem 6%;         /* optional: add some horizontal padding */
+}
+
+/* Visitor location */
+.visitor-location {
+  color: var(--text-primary);
+  white-space: nowrap;
 }
 
 .visitor-location span {
@@ -309,15 +321,22 @@ body {
   color: var(--accent);
 }
 
-#google_translate_element select {
-  background: #111;
-  color: #fff;
-  border: 1px solid #333;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 0.85rem;
+/* Google Translate container */
+#google_translate_element {
+  white-space: nowrap;
 }
 
+/* Google Translate dropdown */
+#google_translate_element select {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+}
+
+/* Hide Google branding */
 .goog-logo-link,
 .goog-te-gadget span {
   display: none !important;
@@ -325,6 +344,14 @@ body {
 
 .goog-te-gadget {
   font-size: 0;
+}
+
+/* Mobile refinement */
+@media (max-width: 480px) {
+  .visitor-meta {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+  }
 }
 
 
