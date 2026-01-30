@@ -309,52 +309,32 @@ function googleTranslateElementInit() {
 }
 </script>
 
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> 
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
   const switcher = document.getElementById("customLangSwitcher");
-  if (!switcher) return;
 
-  const STORAGE_KEY = "site_lang";
-
-  function applyLanguage(lang) {
+  switcher.addEventListener("change", function () {
+    const lang = this.value;
     if (!lang) return;
 
-    const googleSelect = document.querySelector(".goog-te-combo");
-    if (!googleSelect) return false;
-
-    if (googleSelect.value !== lang) {
-      googleSelect.value = lang;
-      googleSelect.dispatchEvent(new Event("change"));
-      localStorage.setItem(STORAGE_KEY, lang);
-    }
-
-    return true;
-  }
-
-  /* Handle manual language change */
-  switcher.addEventListener("change", () => {
-    const lang = switcher.value;
-    if (!lang) return;
-
-    const retry = setInterval(() => {
-      if (applyLanguage(lang)) {
-        clearInterval(retry);
+    const interval = setInterval(() => {
+      const googleSelect = document.querySelector(".goog-te-combo");
+      if (googleSelect) {
+        googleSelect.value = lang;
+        googleSelect.dispatchEvent(new Event("change"));
+        localStorage.setItem("site_lang", lang);
+        clearInterval(interval);
       }
     }, 300);
   });
 
-  /* Restore saved language on load */
-  const savedLang = localStorage.getItem(STORAGE_KEY);
+  // Persist language on reload
+  const savedLang = localStorage.getItem("site_lang");
   if (savedLang) {
     switcher.value = savedLang;
-
-    const restore = setInterval(() => {
-      if (applyLanguage(savedLang)) {
-        clearInterval(restore);
-      }
-    }, 300);
+    switcher.dispatchEvent(new Event("change"));
   }
 });
 </script>
