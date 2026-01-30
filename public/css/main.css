@@ -309,6 +309,24 @@ body {
   color: var(--accent);
 }
 
+#google_translate_element select {
+  background: #111;
+  color: #fff;
+  border: 1px solid #333;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.goog-logo-link,
+.goog-te-gadget span {
+  display: none !important;
+}
+
+.goog-te-gadget {
+  font-size: 0;
+}
+
 
 /* ================================
    CONTEXT
