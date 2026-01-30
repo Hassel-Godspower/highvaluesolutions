@@ -325,46 +325,62 @@ body {
   font-weight: 400;
 }
 
-/* Google Translate dropdown */
-#google_translate_element {
-  white-space: nowrap;
+/* Language switcher container */
+.lang-switcher {
+  position: relative;
+  font-size: 0.75rem;
 }
 
-#google_translate_element select {
-  background: grey;
-  color: white;
+/* Button */
+.lang-btn {
+  background: transparent;
+  color: var(--text-primary);
   border: 1px solid var(--border);
-  padding: 4px 6px;
-  border-radius: 4px;
-  font-size: 0.7rem;
+  padding: 6px 10px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
-/* Remove Google branding text & logo */
-.goog-logo-link,
-.goog-te-gadget span,
-.goog-te-banner-frame,
-.goog-te-balloon-frame {
+/* Dropdown menu */
+.lang-menu {
+  position: absolute;
+  right: 0;
+  top: 120%;
+  background: #0b1220;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  list-style: none;
+  padding: 6px 0;
+  margin: 0;
+  min-width: 140px;
+  display: none;
+  z-index: 999;
+}
+
+.lang-menu li {
+  padding: 6px 12px;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+.lang-menu li:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+/* Hide Google UI completely */
+#google_translate_element {
   display: none !important;
 }
 
-/* Kill leftover spacing */
-.goog-te-gadget {
-  font-size: 10px !important;
-  height: 10 !important;
-  overflow: hidden;
+.goog-logo-link,
+.goog-te-gadget,
+.goog-te-gadget span {
+  display: none !important;
 }
 
-/* Mobile refinement */
-@media (max-width: 480px) {
-  .visitor-meta {
-    padding: 6px 10px;
-    font-size: 0.7rem;
-    color: white;
-    background: transparent;
-  }
+body {
+  top: 0 !important;
 }
-
 
 
 /* ================================
