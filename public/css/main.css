@@ -295,9 +295,7 @@ body {
 
 
 
-/* ===================================
-   VISITOR META BAR (LOCATION + LANGUAGE)
-=================================== */
+
 
 /* ===============================
    VISITOR META BAR
@@ -344,9 +342,7 @@ body {
 
 /* Remove Google branding text & logo */
 .goog-logo-link,
-.goog-te-gadget span,
-.goog-te-banner-frame,
-.goog-te-balloon-frame {
+.goog-te-gadget span {
   display: none !important;
 }
 
