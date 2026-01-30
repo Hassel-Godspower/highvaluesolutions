@@ -342,14 +342,16 @@ body {
 
 /* Remove Google branding text & logo */
 .goog-logo-link,
-.goog-te-gadget span {
+.goog-te-gadget span,
+.goog-te-banner-frame,
+.goog-te-balloon-frame {
   display: none !important;
 }
 
 /* Kill leftover spacing */
 .goog-te-gadget {
-  font-size: 0 !important;
-  height: 0 !important;
+  font-size: 20px !important;
+  height: 20px !important;
   overflow: hidden;
 }
 
