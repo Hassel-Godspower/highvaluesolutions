@@ -299,6 +299,9 @@ body {
    VISITOR META BAR (LOCATION + LANGUAGE)
 =================================== */
 
+/* ===============================
+   VISITOR META BAR
+================================ */
 .visitor-meta {
   width: 100%;
   display: flex;
@@ -306,47 +309,52 @@ body {
   justify-content: space-between;
   gap: 12px;
 
-  padding: 8px 16px;
-  font-size: 0.75rem;
-
-  background: var(--bg-primary);
+  padding: 6px 16px;
   border-bottom: 1px solid var(--border);
+  background: var(--bg-primary);
+
+  font-size: 0.75rem;
 }
 
-/* Visitor location */
+/* Location text */
 .visitor-location {
   color: var(--text-primary);
   white-space: nowrap;
 }
 
 .visitor-location span {
-  font-weight: 400;
   color: var(--accent);
+  font-weight: 400;
 }
 
-/* Google Translate container */
+/* Google Translate dropdown */
 #google_translate_element {
   white-space: nowrap;
 }
 
-/* Google Translate dropdown */
 #google_translate_element select {
   background: transparent;
-  color: var(--text-primary);
+  color: black;
   border: 1px solid var(--border);
   padding: 4px 6px;
   border-radius: 4px;
   font-size: 0.7rem;
+  cursor: pointer;
 }
 
-/* Hide Google branding */
+/* Remove Google branding text & logo */
 .goog-logo-link,
-.goog-te-gadget span {
+.goog-te-gadget span,
+.goog-te-banner-frame,
+.goog-te-balloon-frame {
   display: none !important;
 }
 
+/* Kill leftover spacing */
 .goog-te-gadget {
-  font-size: 0;
+  font-size: 0 !important;
+  height: 0 !important;
+  overflow: hidden;
 }
 
 /* Mobile refinement */
@@ -354,6 +362,7 @@ body {
   .visitor-meta {
     padding: 6px 10px;
     font-size: 0.7rem;
+    color: white;
   }
 }
 
