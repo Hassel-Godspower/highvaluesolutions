@@ -267,14 +267,11 @@ async function showVisitorLocation() {
 }
 
 showVisitorLocation();
-</script>
-
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(
     {
       pageLanguage: 'en',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
       autoDisplay: false
     },
     'google_translate_element'
@@ -282,36 +279,57 @@ function googleTranslateElementInit() {
 }
 </script>
 
-<script
-  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const lang = localStorage.getItem("site_lang");
-  if (lang) {
-    const select = document.querySelector("select.goog-te-combo");
-    if (select) {
-      select.value = lang;
-      select.dispatchEvent(new Event("change"));
-    }
-  }
 
-  document.addEventListener("change", e => {
+  /* ==============================
+     RESTORE SAVED LANGUAGE
+  ============================== */
+  const savedLang = localStorage.getItem("site_lang");
+
+  const applySavedLanguage = () => {
+    const select = document.querySelector(".goog-te-combo");
+    if (!select || !savedLang) return;
+
+    select.value = savedLang;
+    select.dispatchEvent(new Event("change"));
+  };
+
+  // Google injects the select asynchronously
+  const waitForTranslate = setInterval(() => {
+    const select = document.querySelector(".goog-te-combo");
+    if (select) {
+      applySavedLanguage();
+      clearInterval(waitForTranslate);
+    }
+  }, 300);
+
+  /* ==============================
+     SAVE LANGUAGE ON CHANGE
+  ============================== */
+  document.addEventListener("change", (e) => {
     if (e.target.classList.contains("goog-te-combo")) {
       localStorage.setItem("site_lang", e.target.value);
     }
   });
-});
-</script>
 
-<script>
-document.getElementById("openTranslate").addEventListener("click", () => {
-  const select = document.querySelector(".goog-te-combo");
-  if (select) {
-    select.focus();
-    select.click();
+  /* ==============================
+     CUSTOM "TRANSLATE SITE" BUTTON
+  ============================== */
+  const translateBtn = document.getElementById("openTranslate");
+
+  if (translateBtn) {
+    translateBtn.addEventListener("click", () => {
+      const select = document.querySelector(".goog-te-combo");
+      if (select) {
+        select.focus();
+        select.click(); // behaves exactly like Google icon
+      }
+    });
   }
+
 });
 </script>
 
