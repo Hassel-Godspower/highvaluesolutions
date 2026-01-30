@@ -296,6 +296,10 @@ body {
    VISITOR META BAR (LOCATION + LANGUAGE)
 =================================== */
 
+/* ===================================
+   VISITOR META BAR (LOCATION + LANGUAGE)
+=================================== */
+
 .visitor-meta {
   width: 100%;
   display: flex;
@@ -353,38 +357,7 @@ body {
     font-size: 0.7rem;
   }
 }
-.translate-btn {
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--text-primary);
-  font-size: 0.7rem;
-  padding: 4px 8px;
-  border-radius: 4px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.2s ease;
-}
 
-.translate-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-/* Hide Google branding completely */
-#google_translate_element {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.goog-logo-link,
-.goog-te-gadget span {
-  display: none !important;
-}
-
-.goog-te-gadget {
-  font-size: 0;
-}
 
 
 /* ================================
