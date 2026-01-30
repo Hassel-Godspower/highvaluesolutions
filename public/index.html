@@ -269,7 +269,7 @@ async function showVisitorLocation() {
 showVisitorLocation();
 </script>
   
-<script type="text/javascript">
+<script>
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(
     {
@@ -283,54 +283,35 @@ function googleTranslateElementInit() {
 
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ==============================
-     RESTORE SAVED LANGUAGE
-  ============================== */
-  const savedLang = localStorage.getItem("site_lang");
+  const wrapper = document.querySelector(".visitor-meta");
+  const button = document.getElementById("openTranslate");
 
-  const applySavedLanguage = () => {
-    const select = document.querySelector(".goog-te-combo");
-    if (!select || !savedLang) return;
-
-    select.value = savedLang;
-    select.dispatchEvent(new Event("change"));
-  };
-
-  // Google injects the select asynchronously
-  const waitForTranslate = setInterval(() => {
-    const select = document.querySelector(".goog-te-combo");
-    if (select) {
-      applySavedLanguage();
-      clearInterval(waitForTranslate);
-    }
-  }, 300);
-
-  /* ==============================
-     SAVE LANGUAGE ON CHANGE
-  ============================== */
-  document.addEventListener("change", (e) => {
-    if (e.target.classList.contains("goog-te-combo")) {
-      localStorage.setItem("site_lang", e.target.value);
-    }
+  button.addEventListener("click", () => {
+    wrapper.classList.toggle("translate-open");
   });
 
-  /* ==============================
-     CUSTOM "TRANSLATE SITE" BUTTON
-  ============================== */
-  const translateBtn = document.getElementById("openTranslate");
+  /* Persist language */
+  const savedLang = localStorage.getItem("site_lang");
 
-  if (translateBtn) {
-    translateBtn.addEventListener("click", () => {
-      const select = document.querySelector(".goog-te-combo");
-      if (select) {
-        select.focus();
-        select.click(); // behaves exactly like Google icon
-      }
+  const waitForTranslate = setInterval(() => {
+    const select = document.querySelector(".goog-te-combo");
+    if (!select) return;
+
+    if (savedLang) {
+      select.value = savedLang;
+      select.dispatchEvent(new Event("change"));
+    }
+
+    select.addEventListener("change", () => {
+      localStorage.setItem("site_lang", select.value);
     });
-  }
+
+    clearInterval(waitForTranslate);
+  }, 300);
 
 });
 </script>
