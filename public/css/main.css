@@ -956,6 +956,12 @@ footer {
     border-top-right-radius: 28px;
   }
 
+  .cta-section {
+     background:
+       radial-gradient(circle at center, rgba(79,140,255,0.18), transparent 60%),
+       var(--bg-primary);
+   }
+
   /* ---------- FOOTER ---------- */
   footer {
     padding-bottom: 5rem;
