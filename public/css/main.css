@@ -513,7 +513,11 @@ body {
 /* ================================
    PHILOSOPHY
 ================================ */
+/* ================================
+   PHILOSOPHY
+================================ */
 .philosophy {
+  padding: 6rem 6%;
   background: linear-gradient(
     to bottom,
     var(--bg-primary),
@@ -521,9 +525,80 @@ body {
   );
 }
 
-.philosophy p {
+.philosophy-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Headings */
+.philosophy h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.4rem;
+}
+
+.philosophy-subtitle {
+  margin-top: 3.5rem;
+  margin-bottom: 2rem;
+  font-size: 1.4rem;
+}
+
+/* Intro text */
+.philosophy-intro {
   max-width: 700px;
+  margin: 0 auto;
   color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* ================================
+   STEPS
+================================ */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+.step {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem;
+  text-align: left;
+}
+
+/* Step titles */
+.step h4 {
+  font-size: 1.05rem;
+  margin-bottom: 0.6rem;
+}
+
+/* Step text */
+.step p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .philosophy {
+    padding: 4rem 1.4rem;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .philosophy h2 {
+    font-size: 1.9rem;
+  }
 }
 
 /* ================================
