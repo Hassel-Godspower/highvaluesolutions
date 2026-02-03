@@ -234,6 +234,10 @@ body {
   overflow: hidden;
 }
 
+.hero {
+  background: var(--bg-primary);
+}
+
 .hero::before {
   content: "";
   position: absolute;
@@ -511,8 +515,11 @@ body {
    PHILOSOPHY
 ================================ */
 .philosophy {
-  padding: 5rem 6%;
-  background: linear-gradient(to bottom, transparent, rgba(79,140,255,0.04));
+  background: linear-gradient(
+    to bottom,
+    var(--bg-primary),
+    rgba(79,140,255,0.04)
+  );
 }
 
 .philosophy p {
@@ -599,7 +606,7 @@ body {
 
 /* Add visual breathing room between sections */
 section + section {
-  margin-top: 2.5rem;
+  padding-top: 2.5rem;
 }
 
 /* ===================================
@@ -898,6 +905,11 @@ footer {
     padding-left: 1.4rem !important;
     padding-right: 1.4rem !important;
   }
+
+   section {
+     background: var(--bg-primary);
+   }
+
 
   /* ---------- CARD GRID ---------- */
   .grid {
