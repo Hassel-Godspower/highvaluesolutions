@@ -235,7 +235,7 @@ body {
   background: var(--bg-primary);
 }
 
-.hero::before {
+.hero::after {
   content: "";
   position: absolute;
   inset: 0;
