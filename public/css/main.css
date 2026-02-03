@@ -288,6 +288,11 @@ body {
   transform: translateY(0);
 }
 
+@media (min-width: 1024px) {
+  .hero {
+    padding-top: 4.5rem;
+  }
+}
 
 /* ================================
    BUTTONS
