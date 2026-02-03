@@ -232,9 +232,6 @@ body {
   padding: 0 6%;
   position: relative;
   overflow: hidden;
-}
-
-.hero {
   background: var(--bg-primary);
 }
 
@@ -294,8 +291,12 @@ body {
 
 @media (min-width: 1024px) {
   .hero {
-    padding-top: 5.5rem;
+    padding-top: calc(5rem + env(safe-area-inset-top));
   }
+}
+
+main {
+  scroll-margin-top: 80px; /* navbar height */
 }
 
 /* ================================
