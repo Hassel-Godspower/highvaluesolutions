@@ -237,17 +237,6 @@ body {
     radial-gradient(circle at 80% 60%, rgba(122,167,255,0.12), transparent 40%);
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(79,140,255,0.18), transparent 45%),
-    radial-gradient(circle at 80% 60%, rgba(122,167,255,0.12), transparent 40%);
-  z-index: 0;
-}
-
-
 .hero-content {
   max-width: 780px;
   animation: fadeUp 1s ease forwards;
