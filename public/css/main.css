@@ -232,9 +232,17 @@ body {
   padding: 0 6%;
   position: relative;
   overflow: hidden;
-  background: var(--bg-primary);
-  background: radial-gradient(circle at center, rgba(79,140,255,0.18), transparent 60%), radial-gradient(circle at 20% 20%, rgba(79,140,255,0.18), transparent 45%),
-    radial-gradient(circle at 80% 60%, rgba(122,167,255,0.12), transparent 40%);
+
+  background:
+    radial-gradient(circle at center, rgba(79,140,255,0.18), transparent 60%),
+    radial-gradient(circle at 20% 20%, rgba(79,140,255,0.18), transparent 45%),
+    radial-gradient(circle at 80% 60%, rgba(122,167,255,0.12), transparent 40%),
+    var(--bg-primary);
+}
+
+.hero {
+  background-blend-mode: screen;
+  background-size: 120% 120%;
 }
 
 .hero-content {
