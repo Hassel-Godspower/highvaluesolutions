@@ -49,62 +49,57 @@ body {
   position: sticky;
   top: 0;
   z-index: 50;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 1.2rem 6%;
   background: rgba(5, 8, 20, 0.6);
   backdrop-filter: blur(12px);
+
   border-bottom: 1px solid var(--border);
 }
 
+/* ================================
+   LOGO
+================================ */
 .logo {
   display: flex;
   align-items: center;
   gap: 10px;
+
   text-decoration: none;
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--text-primary);
-}
-
-.logo img {
-  height: 34px;       /* adjust if needed */
-  width: auto;
-  display: block;
-}
-
-.logo span span {
-  color: var(--accent);
-}
-
-/* Mobile refinement */
-@media (max-width: 768px) {
-  .logo img {
-    height: 30px;
-  }
-
-  .logo {
-    font-size: 1rem;
-  }
-}
-
-
-.logo {
   font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 0.4px;
 }
 
-.logo span {
-  color: var(--accent);
+/* Logo image */
+.logo img {
+  height: 34px;
+  width: auto;
+  display: block;
 }
 
+/* HighValue */
+.logo .brand-primary {
+  color: #ffffff;
+}
+
+/* Solutions */
+.logo .brand-accent {
+  color: var(--accent); /* blue */
+}
+
+/* ================================
+   NAV LINKS
+================================ */
 .navbar nav a {
   margin-left: 1.6rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 0.95rem;
   transition: var(--transition);
 }
 
@@ -112,13 +107,30 @@ body {
   color: var(--text-primary);
 }
 
+/* CTA Button */
 .navbar .btn {
   padding: 0.55rem 1.2rem;
   border-radius: 999px;
   background: var(--accent-gradient);
-  color: #fff;
+  color: #ffffff;
 }
 
+/* ================================
+   MOBILE REFINEMENT
+================================ */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 1rem;
+  }
+
+  .logo img {
+    height: 30px;
+  }
+}
+
+/* ================================
+   APP BOOT ANIMATION
+================================ */
 body {
   animation: appBoot 0.6s ease;
 }
@@ -133,6 +145,7 @@ body {
     transform: scale(1);
   }
 }
+
 
 /* ================================
    SITE SEARCH
