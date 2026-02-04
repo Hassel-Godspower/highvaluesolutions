@@ -243,7 +243,7 @@ body {
   min-height: 90vh;
   display: flex;
   align-items: center;
-  padding: 0 6%;
+  padding: 4rem 6% 5rem;
   position: relative;
   overflow: hidden;
 
@@ -308,6 +308,7 @@ body {
 @media (min-width: 1024px) {
   .hero {
     padding-top: calc(5rem + env(safe-area-inset-top));
+    padding-bottom: 7rem;
   }
 }
 
@@ -538,11 +539,6 @@ body {
 ================================ */
 .philosophy {
   padding: 6rem 6%;
-  background: linear-gradient(
-    to bottom,
-    var(--bg-primary),
-    rgba(79,140,255,0.04)
-  );
 }
 
 .philosophy-inner {
