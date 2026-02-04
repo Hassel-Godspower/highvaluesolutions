@@ -9,15 +9,50 @@
 </head>
 
 <body>
+<!-- DESKTOP NAV -->
 <header class="navbar">
-  <div class="logo">HighValue<span>Solutions</span></div>
-
+  <a href="/" class="logo">
+    <img src="/assets/images/logo.png">
+    <span class="brand-primary">HighValue</span>
+    <span class="brand-accent">Solutions</span>
+  </a>
+  
   <nav class="nav-links">
     <a href="/">Home</a>
     <a href="/services.html">Solutions</a>
-    <a href="/about.html">Company</a>
+    <a href="/company.html">Company</a>
     <a href="/contact.html" class="btn">Start a Project</a>
   </nav>
+</header>
+
+<!-- VISITOR META BAR -->
+<div class="visitor-meta">
+  <div class="visitor-location" id="visitorLocation">
+    <span id="visitorCity">…</span>, <span id="visitorCountry">…</span>
+  </div>
+
+  <!-- CUSTOM TRANSLATE SWITCHER -->
+  <div class="lang-switcher">
+    <button id="langToggle" class="lang-btn">
+      🌍 Translate Site
+    </button>
+  
+    <ul id="langMenu" class="lang-menu">
+      <li data-lang="en">English</li>
+      <li data-lang="fr">Français</li>
+      <li data-lang="es">Español</li>
+      <li data-lang="de">Deutsch</li>
+      <li data-lang="pt">Português</li>
+      <li data-lang="ar">العربية</li>
+      <li data-lang="it">Italiano</li>
+      <li data-lang="nl">Nederlands</li>
+      <li data-lang="ru">Русский</li>
+    </ul>
+  </div>
+  
+  <!-- GOOGLE TRANSLATE (HIDDEN ENGINE) -->
+  <div id="google_translate_element"></div>
+ </div>
 
 </header>
 
