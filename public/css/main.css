@@ -524,9 +524,15 @@ body {
   font-size: 0.95rem;
 }
 
-/* ================================
-   PHILOSOPHY
-================================ */
+.solutions::before {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(79,140,255,0.06),
+      transparent 60%
+    );
+}
+
 /* ================================
    PHILOSOPHY
 ================================ */
@@ -564,6 +570,11 @@ body {
   color: var(--text-secondary);
   font-size: 1.05rem;
   line-height: 1.7;
+}
+
+.philosophy::before {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(79,140,255,0.08), transparent 60%);
 }
 
 /* ================================
@@ -642,6 +653,14 @@ body {
 .industry-list span:hover {
   background: var(--accent-soft);
   color: var(--accent);
+}
+.industries::before {
+  background:
+    linear-gradient(
+      to top,
+      rgba(79,140,255,0.04),
+      transparent 55%
+    );
 }
 
 /* ===================================
@@ -897,6 +916,10 @@ section + section {
   background: radial-gradient(circle at center, rgba(79,140,255,0.18), transparent 60%);
 }
 
+.cta-section::before {
+  background:
+    radial-gradient(circle at center, rgba(79,140,255,0.22), transparent 60%);
+}
 .cta-section p {
   color: var(--text-secondary);
   margin: 1rem auto 2rem;
