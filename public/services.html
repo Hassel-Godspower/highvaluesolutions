@@ -132,6 +132,25 @@
   <a href="/contact.html" class="cta primary">Let’s Build It</a>
 </section>
 
+<script>
+/* VISITOR LOCATION */
+async function showVisitorLocation() {
+  try {
+    const res = await fetch("https://ipapi.co/json/");
+    if (!res.ok) throw new Error("Location error");
+
+    const data = await res.json();
+    document.getElementById("visitorCity").textContent = data.city || "Your City";
+    document.getElementById("visitorCountry").textContent = data.country_name || "Your Country";
+  } catch {
+    document.getElementById("visitorCity").textContent = "Your City";
+    document.getElementById("visitorCountry").textContent = "Your Country";
+  }
+}
+
+showVisitorLocation();
+</script>
+
 
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
