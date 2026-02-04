@@ -18,50 +18,73 @@ const observer = new IntersectionObserver(entries => {
 reveals.forEach(el => observer.observe(el));
 
 
+/* ================================
+   VISITOR LOCATION
+================================ */
 async function showVisitorLocation() {
-  try {
-    const res = await fetch("https://ipapi.co/json/");
-    if (!res.ok) throw new Error("Location error");
+  const cityEl = document.getElementById("visitorCity");
+  const countryEl = document.getElementById("visitorCountry");
 
-    const data = await res.json();
-    document.getElementById("visitorCity").textContent = data.city || "Your City";
-    document.getElementById("visitorCountry").textContent = data.country_name || "Your Country";
-  } catch {
-    document.getElementById("visitorCity").textContent = "Your City";
-    document.getElementById("visitorCountry").textContent = "Your Country";
+  if (!cityEl || !countryEl) return;
+
+  try {
+    const response = await fetch("https://ipapi.co/json/");
+    if (!response.ok) throw new Error("Location fetch failed");
+
+    const data = await response.json();
+    cityEl.textContent = data.city || "Your City";
+    countryEl.textContent = data.country_name || "Your Country";
+  } catch (err) {
+    cityEl.textContent = "Your City";
+    countryEl.textContent = "Your Country";
   }
 }
 
 showVisitorLocation();
 
+
+/* ================================
+   GOOGLE TRANSLATE INIT
+================================ */
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(
     {
-      pageLanguage: 'en',
+      pageLanguage: "en",
       autoDisplay: false
     },
-    'google_translate_element'
+    "google_translate_element"
   );
 }
-src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
 
+
+/* ================================
+   CUSTOM LANGUAGE SWITCHER
+================================ */
 document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById("langToggle");
   const menu = document.getElementById("langMenu");
 
-  toggle.addEventListener("click", () => {
+  if (!toggle || !menu) return;
+
+  // Toggle menu visibility
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
     menu.style.display = menu.style.display === "block" ? "none" : "block";
   });
 
-  document.querySelectorAll(".lang-menu li").forEach(item => {
+  // Language selection
+  menu.querySelectorAll("li").forEach(item => {
     item.addEventListener("click", () => {
       const lang = item.dataset.lang;
+      if (!lang) return;
+
       applyLanguage(lang);
       localStorage.setItem("site_lang", lang);
       menu.style.display = "none";
     });
   });
 
+  // Apply language via Google Translate
   function applyLanguage(lang) {
     const interval = setInterval(() => {
       const select = document.querySelector(".goog-te-combo");
@@ -73,17 +96,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 300);
   }
 
-  // Restore language
+  // Restore saved language
   const savedLang = localStorage.getItem("site_lang");
   if (savedLang) {
     applyLanguage(savedLang);
   }
 
-  // Close on outside click
-  document.addEventListener("click", e => {
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
     if (!e.target.closest(".lang-switcher")) {
       menu.style.display = "none";
     }
   });
 });
-</script>
