@@ -727,6 +727,13 @@ section + section {
   border-top: 1px solid var(--border);
 }
 
+.philosophy::before,
+.solutions::before,
+.industries::before,
+.cta-section::before {
+  display: none !important;
+}
+
 /* ===================================
    VALUES LIST (HOW WE WORK)
 =================================== */
