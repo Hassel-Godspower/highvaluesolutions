@@ -47,7 +47,15 @@ section {
   isolation: isolate; /* VERY important */
   background: var(--bg-primary);
 }
-
+section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.85;
+  pointer-events: none;
+  display: none;
+}
 
 /* ================================
    NAVBAR
