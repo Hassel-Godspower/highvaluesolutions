@@ -296,63 +296,10 @@ async function showVisitorLocation() {
 showVisitorLocation();
 </script>
   
-<script>
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement(
-    {
-      pageLanguage: 'en',
-      autoDisplay: false
-    },
-    'google_translate_element'
-  );
-}
-</script>
 
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.getElementById("langToggle");
-  const menu = document.getElementById("langMenu");
 
-  toggle.addEventListener("click", () => {
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
-  });
-
-  document.querySelectorAll(".lang-menu li").forEach(item => {
-    item.addEventListener("click", () => {
-      const lang = item.dataset.lang;
-      applyLanguage(lang);
-      localStorage.setItem("site_lang", lang);
-      menu.style.display = "none";
-    });
-  });
-
-  function applyLanguage(lang) {
-    const interval = setInterval(() => {
-      const select = document.querySelector(".goog-te-combo");
-      if (!select) return;
-
-      select.value = lang;
-      select.dispatchEvent(new Event("change"));
-      clearInterval(interval);
-    }, 300);
-  }
-
-  // Restore language
-  const savedLang = localStorage.getItem("site_lang");
-  if (savedLang) {
-    applyLanguage(savedLang);
-  }
-
-  // Close on outside click
-  document.addEventListener("click", e => {
-    if (!e.target.closest(".lang-switcher")) {
-      menu.style.display = "none";
-    }
-  });
-});
-</script>
 
 </body>
 </html>
