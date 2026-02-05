@@ -720,6 +720,13 @@ section + section {
   font-size: 1rem;
 }
 
+.content,
+.split,
+.metrics {
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border);
+}
+
 /* ===================================
    VALUES LIST (HOW WE WORK)
 =================================== */
