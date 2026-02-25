@@ -317,6 +317,33 @@ main {
   scroll-margin-top: 80px; /* navbar height */
 }
 
+.brain-svg path {
+  stroke: white !important;
+  fill: none !important;
+  stroke-width: 2;
+}
+
+.brain-svg path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLines 6s ease forwards;
+}
+
+@keyframes drawLines {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.brain-svg path {
+  stroke: #ffffff;
+  filter: drop-shadow(0 0 6px #00f7ff);
+  animation: drawLines 6s ease forwards, glowPulse 4s infinite alternate;
+}
+
+@keyframes glowPulse {
+  from { filter: drop-shadow(0 0 4px #00f7ff); }
+  to   { filter: drop-shadow(0 0 12px #00f7ff); }
+}
 .hero-inner {
   display: flex;
   align-items: center;
