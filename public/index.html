@@ -113,25 +113,79 @@
   
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
-    <span class="badge">Applied Intelligence</span>
+  <div class="hero-inner">
 
-    <h1>
-      We Build Custom AI-Driven Systems <br />
-      That Automate Operations and Scale Businesses
-    </h1>
+    <!-- LEFT: AI Brain Animation -->
+    <div class="hero-visual">
+      <svg viewBox="0 0 600 600" class="brain-svg">
+        <defs>
+          <clipPath id="brainClip">
+            <path d="M300,80 
+                     C420,60 520,160 500,300 
+                     C480,440 380,520 300,500 
+                     C220,520 120,440 100,300 
+                     C80,160 180,60 300,80 Z" />
+          </clipPath>
+        </defs>
 
-    <p>
-      HighValue Solutions designs and engineers intelligent software systems —
-      from AI-driven platforms to custom enterprise solutions —
-      helping organizations automate complexity, scale operations,
-      and make better decisions with confidence.
-    </p>
+        <!-- Transparent Brain Outline -->
+        <path d="M300,80 
+                 C420,60 520,160 500,300 
+                 C480,440 380,520 300,500 
+                 C220,520 120,440 100,300 
+                 C80,160 180,60 300,80 Z"
+              fill="none"
+              stroke="rgba(255,255,255,0.2)"
+              stroke-width="2"/>
 
-    <div class="hero-actions">
-      <a href="/contact.html" class="cta primary">Build a Custom Solution</a>
-      <a href="/services.html" class="cta secondary">View Our Solutions</a>
+        <!-- CODE LINES INSIDE BRAIN -->
+        <g clip-path="url(#brainClip)">
+          <foreignObject x="0" y="0" width="600" height="600">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="code-stream">
+<pre>
+function automate() {
+  const system = new Intelligence();
+  system.learn(data);
+  system.optimize(workflows);
+  system.scale(globalMarkets);
+  return system.deploy();
+}
+
+class AIEngine {
+  predict();
+  analyze();
+  evolve();
+}
+
+deploy({ secure: true, scalable: true });
+</pre>
+            </div>
+          </foreignObject>
+        </g>
+      </svg>
     </div>
+
+    <!-- RIGHT: TEXT -->
+    <div class="hero-content">
+      <span class="badge">Applied Intelligence</span>
+
+      <h1>
+        We Build Custom AI-Driven Systems <br />
+        That Automate Operations and Scale Businesses
+      </h1>
+
+      <p>
+        HighValue Solutions designs and engineers intelligent software systems —
+        helping organizations automate complexity, scale operations,
+        and make better decisions with confidence.
+      </p>
+
+      <div class="hero-actions">
+        <a href="/contact.html" class="cta primary">Build a Custom Solution</a>
+        <a href="/services.html" class="cta secondary">View Our Solutions</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
