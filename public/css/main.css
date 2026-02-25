@@ -317,6 +317,57 @@ main {
   scroll-margin-top: 80px; /* navbar height */
 }
 
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 100px 20px;
+}
+
+.hero-visual {
+  flex: 1;
+  max-width: 500px;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.brain-svg {
+  width: 100%;
+  height: auto;
+}
+
+.code-stream {
+  font-family: monospace;
+  font-size: 12px;
+  color: rgba(0, 255, 170, 0.6);
+  animation: scrollCode 12s linear infinite;
+}
+
+.code-stream pre {
+  margin: 0;
+  line-height: 1.4;
+}
+
+@keyframes scrollCode {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-200px); }
+}
+
+@media (max-width: 900px) {
+  .hero-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-visual {
+    max-width: 350px;
+  }
+}
 /* ================================
    BUTTONS
 ================================ */
