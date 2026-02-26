@@ -744,6 +744,13 @@ body {
   opacity: 0.8;
 }
 
+.partners {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  opacity: 0.85;
+  line-height: 1.6;
+}
 /* ================================
    PHILOSOPHY
 ================================ */
