@@ -108,4 +108,33 @@ document.addEventListener("DOMContentLoaded", () => {
       menu.style.display = "none";
     }
   });
+}); 
+
+document.addEventListener("DOMContentLoaded", () => {
+  const innovations = document.querySelectorAll(".innovation");
+
+  innovations.forEach(item => {
+    const btn = item.querySelector(".expand-btn");
+
+    btn.addEventListener("click", () => {
+      item.classList.toggle("active");
+    });
+  });
+
+  // Scroll fade-in animation
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  }, { threshold: 0.2 });
+
+  innovations.forEach(section => {
+    section.style.opacity = "0";
+    section.style.transform = "translateY(40px)";
+    section.style.transition = "0.8s ease";
+    observer.observe(section);
+  });
 });
